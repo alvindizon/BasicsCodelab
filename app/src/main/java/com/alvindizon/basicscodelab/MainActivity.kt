@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    var expanded by remember { mutableStateOf(false) }
+    var expanded by rememberSaveable { mutableStateOf(false) }
 
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp,
