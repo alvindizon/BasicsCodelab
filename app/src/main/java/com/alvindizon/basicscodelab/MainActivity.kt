@@ -3,7 +3,6 @@ package com.alvindizon.basicscodelab
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -29,7 +28,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Surface(color = MaterialTheme.colors.primary) {
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
         Column(modifier = Modifier.fillMaxWidth().padding(24.dp)) {
             Text(text = "Hello,")
             Text(text = name)
@@ -47,7 +49,7 @@ fun DefaultPreview() {
 
 @Composable
 private fun MyApp(names: List<String> = listOf("World", "Compose")) {
-    Column(modifier = Modifier.padding(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    Column(modifier = Modifier.padding(4.dp)) {
         for (name in names) {
             Greeting(name = name)
         }
