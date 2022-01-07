@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedButton
@@ -23,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alvindizon.basicscodelab.ui.theme.BasicsCodelabTheme
+import androidx.compose.foundation.lazy.items
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +48,9 @@ fun Greeting(name: String) {
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
         // instead of applying the padding to the column only, I think it's better to apply it to the whole row itself
-        Row(modifier = Modifier.padding(24.dp).padding(bottom = extraPadding)) {
+        Row(modifier = Modifier
+            .padding(24.dp)
+            .padding(bottom = extraPadding)) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(text = "Hello,")
                 Text(text = name)
@@ -106,9 +110,9 @@ fun OnboardingPreview() {
 }
 
 @Composable
-private fun Greetings(names: List<String> = listOf("World", "Compose")) {
-    Column(modifier = Modifier.padding(4.dp)) {
-        for (name in names) {
+private fun Greetings(names: List<String> = List(1000) { "$it" }) {
+    LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
+        items(items = names) { name ->
             Greeting(name = name)
         }
     }
