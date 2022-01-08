@@ -1,2 +1,2 @@
-## BasicsCodelab
-A repo containing code for the Jetpack Compose basics [codelab](https://developer.android.com/codelabs/jetpack-compose-basics).
+## ComposeCodelabs
+Contains code for following along some [codelabs](https://github.com/googlecodelabs/android-compose-codelabs) for learning Jetpack Compose.
